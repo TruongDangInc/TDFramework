@@ -10,6 +10,7 @@
 		F3FE61772587A4CF00B4B4DB /* TDFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3FE616D2587A4CF00B4B4DB /* TDFramework.framework */; };
 		F3FE617C2587A4CF00B4B4DB /* TDFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FE617B2587A4CF00B4B4DB /* TDFrameworkTests.swift */; };
 		F3FE617E2587A4CF00B4B4DB /* TDFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = F3FE61702587A4CF00B4B4DB /* TDFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F3FE618A2587A57A00B4B4DB /* TDServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FE61892587A57A00B4B4DB /* TDServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		F3FE61762587A4CF00B4B4DB /* TDFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TDFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3FE617B2587A4CF00B4B4DB /* TDFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDFrameworkTests.swift; sourceTree = "<group>"; };
 		F3FE617D2587A4CF00B4B4DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3FE61892587A57A00B4B4DB /* TDServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				F3FE61702587A4CF00B4B4DB /* TDFramework.h */,
+				F3FE61892587A57A00B4B4DB /* TDServices.swift */,
 				F3FE61712587A4CF00B4B4DB /* Info.plist */,
 			);
 			path = TDFramework;
@@ -196,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3FE618A2587A57A00B4B4DB /* TDServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
