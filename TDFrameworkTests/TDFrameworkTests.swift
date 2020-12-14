@@ -17,5 +17,18 @@ import XCTest
 @testable import TDFramework
 
 class TDFrameworkTests: XCTestCase {
+    func testRegisterAccout() throws {
+        _ = TDServices.registerAccout(withUserName: "Login User Name", password: "SHA-1 Encrypted Password")
+        let userName = UserDefaults.standard.string(forKey: "register_user_name")
+        let pass = UserDefaults.standard.string(forKey: "register_password")
+        
+        XCTAssertEqual(userName, "Login User Name", "[😱] Oops! Username is wrong")
+        XCTAssertEqual(pass, "SHA-1 Encrypted Password", "[😱] Oops! Password is wrong")
+    }
 
+    func testPerformanceRegisterAccout() throws {
+        measure {
+            _ = TDServices.registerAccout(withUserName: "Login User Name", password: "SHA-1 Encrypted Password")
+        }
+    }
 }
