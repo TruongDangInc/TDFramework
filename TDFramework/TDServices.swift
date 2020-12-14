@@ -29,4 +29,15 @@ public class TDServices: NSObject {
         UserDefaults.standard.synchronize()
         return [userName, pass]
     }
+
+    public class func logout() -> [String] {
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
+        return []
+    }
+
+    public class func history() -> [String] {
+        return  UserDefaults.standard.dictionaryRepresentation().keys.map { $0 as String }
+    }
 }
