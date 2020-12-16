@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F32F6E7B258BCC4500DAAC13 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32F6E7A258BCC4500DAAC13 /* CoreDataManager.swift */; };
+		F32F6E80258BD23800DAAC13 /* EventEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32F6E7E258BD23800DAAC13 /* EventEntity+CoreDataClass.swift */; };
+		F32F6E81258BD23800DAAC13 /* EventEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32F6E7F258BD23800DAAC13 /* EventEntity+CoreDataProperties.swift */; };
 		F388EB43258A62A5006F9B4B /* AppDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388EB42258A62A5006F9B4B /* AppDataManager.swift */; };
+		F388EC02258A822C006F9B4B /* TDFramework.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F388EC00258A822C006F9B4B /* TDFramework.xcdatamodeld */; };
 		F3FE61772587A4CF00B4B4DB /* TDFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3FE616D2587A4CF00B4B4DB /* TDFramework.framework */; };
 		F3FE617C2587A4CF00B4B4DB /* TDFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FE617B2587A4CF00B4B4DB /* TDFrameworkTests.swift */; };
 		F3FE617E2587A4CF00B4B4DB /* TDFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = F3FE61702587A4CF00B4B4DB /* TDFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -25,7 +29,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F32F6E7A258BCC4500DAAC13 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		F32F6E7E258BD23800DAAC13 /* EventEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F32F6E7F258BD23800DAAC13 /* EventEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F388EB42258A62A5006F9B4B /* AppDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataManager.swift; sourceTree = "<group>"; };
+		F388EC01258A822C006F9B4B /* TDFramework.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TDFramework.xcdatamodel; sourceTree = "<group>"; };
 		F3B7258525AB164C00EAF593 /* TRUONGDV01.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = TRUONGDV01.podspec; sourceTree = SOURCE_ROOT; };
 		F3FE616D2587A4CF00B4B4DB /* TDFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TDFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3FE61702587A4CF00B4B4DB /* TDFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDFramework.h; sourceTree = "<group>"; };
@@ -55,6 +63,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F32F6E73258BCB3E00DAAC13 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F32F6E7A258BCC4500DAAC13 /* CoreDataManager.swift */,
+				F32F6E7E258BD23800DAAC13 /* EventEntity+CoreDataClass.swift */,
+				F32F6E7F258BD23800DAAC13 /* EventEntity+CoreDataProperties.swift */,
+				F388EC00258A822C006F9B4B /* TDFramework.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		F3FE61632587A4CF00B4B4DB = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +99,7 @@
 				F3FE61702587A4CF00B4B4DB /* TDFramework.h */,
 				F3FE61892587A57A00B4B4DB /* TDServices.swift */,
 				F388EB42258A62A5006F9B4B /* AppDataManager.swift */,
+				F32F6E73258BCB3E00DAAC13 /* CoreData */,
 				F3FE61712587A4CF00B4B4DB /* Info.plist */,
 			);
 			path = TDFramework;
@@ -204,8 +224,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F32F6E7B258BCC4500DAAC13 /* CoreDataManager.swift in Sources */,
+				F32F6E80258BD23800DAAC13 /* EventEntity+CoreDataClass.swift in Sources */,
+				F388EC02258A822C006F9B4B /* TDFramework.xcdatamodeld in Sources */,
 				F3FE618A2587A57A00B4B4DB /* TDServices.swift in Sources */,
 				F388EB43258A62A5006F9B4B /* AppDataManager.swift in Sources */,
+				F32F6E81258BD23800DAAC13 /* EventEntity+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +512,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F388EC00258A822C006F9B4B /* TDFramework.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F388EC01258A822C006F9B4B /* TDFramework.xcdatamodel */,
+			);
+			currentVersion = F388EC01258A822C006F9B4B /* TDFramework.xcdatamodel */;
+			path = TDFramework.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F3FE61642587A4CF00B4B4DB /* Project object */;
 }
