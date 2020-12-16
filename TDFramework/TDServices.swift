@@ -15,29 +15,50 @@
 
 import UIKit
 
-public class TDServices: NSObject {
-    public class func registerAccout(withUserName userName: String, password pass: String) -> [String] {
-        UserDefaults.standard.setValue(userName, forKey: "register_user_name")
-        UserDefaults.standard.setValue(pass, forKey: "register_password")
-        UserDefaults.standard.synchronize()
-        return [userName, pass]
+public class TDServices {
+    public static var shared = TDServices()
+
+    @discardableResult public func registerAccout(withName username: String, password pass: String) -> [String:String] {
+        let event = ["Register":"[\(Date().debugDescription)] Registed account with username \"\(username)\", password[SHA-1 encrypted] \"\(pass)\""]
+        let manager = AppDataManager()
+        var trackedEvent = manager.trackedEvent() as? [[String:String]]
+        if trackedEvent == nil {
+            trackedEvent = [event]
+        } else {
+            trackedEvent!.append(event)
+        }
+        manager.set(trackedEvent: trackedEvent)
+        return [username:pass]
     }
 
-    public class func login(withUserName userName: String, password pass: String) -> [String] {
-        UserDefaults.standard.setValue(userName, forKey: "user_name")
-        UserDefaults.standard.setValue(pass, forKey: "password")
-        UserDefaults.standard.synchronize()
-        return [userName, pass]
+    @discardableResult public func login(withName username: String, password pass: String) -> [String:String] {
+        let event = ["Login":"[\(Date().debugDescription)] Loged in with username \"\(username)\", password[SHA-1 encrypted] \"\(pass)\""]
+        let manager = AppDataManager()
+        var trackedEvent = manager.trackedEvent() as? [[String:String]]
+        if trackedEvent == nil {
+            trackedEvent = [event]
+        } else {
+            trackedEvent!.append(event)
+        }
+        manager.set(trackedEvent: trackedEvent)
+        return [username:pass]
     }
 
-    public class func logout() -> [String] {
-        let domain = Bundle.main.bundleIdentifier!
-        UserDefaults.standard.removePersistentDomain(forName: domain)
-        UserDefaults.standard.synchronize()
-        return []
+    @discardableResult public func logout() -> [String:String] {
+        let event = ["Logout":"[\(Date().debugDescription)] Loged out!"]
+        let manager = AppDataManager()
+        var trackedEvent = manager.trackedEvent() as? [[String:String]]
+        if trackedEvent == nil {
+            trackedEvent = [event]
+        } else {
+            trackedEvent!.append(event)
+        }
+        manager.set(trackedEvent: trackedEvent)
+        return [:]
     }
 
-    public class func history() -> [String] {
-        return  UserDefaults.standard.dictionaryRepresentation().keys.map { $0 as String }
+    @discardableResult public func history() -> [[String:String]]? {
+        let manager = AppDataManager()
+        return manager.trackedEvent() as? [[String:String]]
     }
 }
