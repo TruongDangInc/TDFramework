@@ -13,52 +13,30 @@
 //  Copyright (c) 2020 TruongDang Inc. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 public class TDServices {
     public static var shared = TDServices()
 
     @discardableResult public func registerAccout(withName username: String, password pass: String) -> [String:String] {
-        let event = ["Register":"[\(Date().debugDescription)] Registed account with username \"\(username)\", password[SHA-1 encrypted] \"\(pass)\""]
-        let manager = AppDataManager()
-        var trackedEvent = manager.trackedEvent() as? [[String:String]]
-        if trackedEvent == nil {
-            trackedEvent = [event]
-        } else {
-            trackedEvent!.append(event)
-        }
-        manager.set(trackedEvent: trackedEvent)
+        EventEntity.createEvent(with: EventType.register.rawValue, message: "[\(Date().debugDescription)] Registed account with username \"\(username)\", password[SHA-1 encrypted] \"\(pass)\"")
         return [username:pass]
     }
 
     @discardableResult public func login(withName username: String, password pass: String) -> [String:String] {
-        let event = ["Login":"[\(Date().debugDescription)] Loged in with username \"\(username)\", password[SHA-1 encrypted] \"\(pass)\""]
-        let manager = AppDataManager()
-        var trackedEvent = manager.trackedEvent() as? [[String:String]]
-        if trackedEvent == nil {
-            trackedEvent = [event]
-        } else {
-            trackedEvent!.append(event)
-        }
-        manager.set(trackedEvent: trackedEvent)
+        EventEntity.createEvent(with: EventType.login.rawValue, message: "[\(Date().debugDescription)] Loged in with username \"\(username)\", password[SHA-1 encrypted] \"\(pass)\"")
         return [username:pass]
     }
 
     @discardableResult public func logout() -> [String:String] {
-        let event = ["Logout":"[\(Date().debugDescription)] Loged out!"]
-        let manager = AppDataManager()
-        var trackedEvent = manager.trackedEvent() as? [[String:String]]
-        if trackedEvent == nil {
-            trackedEvent = [event]
-        } else {
-            trackedEvent!.append(event)
-        }
-        manager.set(trackedEvent: trackedEvent)
+        EventEntity.createEvent(with: EventType.logout.rawValue, message: "[\(Date().debugDescription)] Loged out!")
         return [:]
     }
 
-    @discardableResult public func history() -> [[String:String]]? {
-        let manager = AppDataManager()
-        return manager.trackedEvent() as? [[String:String]]
+    @discardableResult public func history() -> [Event] {
+        let events = EventEntity.getAllEvents()
+        return events.map { (event) -> Event in
+            return Event(type: EventType(rawValue: event.type ?? ""), message: event.message)
+        }
     }
 }
