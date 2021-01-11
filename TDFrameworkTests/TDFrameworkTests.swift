@@ -18,7 +18,7 @@ import XCTest
 
 class TDFrameworkTests: XCTestCase {
     func testRegisterAccout() throws {
-        _ = TDServices.registerAccout(withUserName: "Login User Name", password: "SHA-1 Encrypted Password")
+        TDServices.shared.registerAccout(withName: "Login User Name", password: "SHA-1 Encrypted Password")
         let userName = UserDefaults.standard.string(forKey: "register_user_name")
         let pass = UserDefaults.standard.string(forKey: "register_password")
         
@@ -28,7 +28,7 @@ class TDFrameworkTests: XCTestCase {
 
     func testPerformanceRegisterAccout() throws {
         measure {
-            _ = TDServices.registerAccout(withUserName: "Login User Name", password: "SHA-1 Encrypted Password")
+            TDServices.shared.registerAccout(withName: "Login User Name", password: "SHA-1 Encrypted Password")
         }
     }
 }
