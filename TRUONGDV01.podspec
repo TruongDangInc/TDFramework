@@ -2,7 +2,7 @@ Pod::Spec.new do |spec|
 
   spec.name                     = "TRUONGDV01"
 
-  spec.version                  = "2.0"
+  spec.version                  = "3.0"
 
   spec.summary                  = " A conforming TRUONGDV client library."
 
@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
 
   spec.ios.deployment_target    = "12.0"
 
-  spec.source                   = { :http => "https://github.com/TruongDangInc/TDFramework/releases/download/2.0/TDFramework-2.0.zip" }
+  spec.source                   = { :http => "https://github.com/TruongDangInc/TDFramework/releases/download/3.0/TDFramework-3.0.zip" }
 
   spec.swift_version            = "5.0"
 
@@ -24,4 +24,5 @@ Pod::Spec.new do |spec|
 
   spec.ios.vendored_frameworks  = "Frameworks/TDFramework.xcframework"
 
+  spec.dependency 'Alamofire', '~> 5.6'
 end

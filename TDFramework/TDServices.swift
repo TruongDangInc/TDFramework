@@ -14,6 +14,7 @@
 //
 
 import Foundation
+import Alamofire
 
 public class TDServices {
     public static var shared = TDServices()
@@ -34,6 +35,14 @@ public class TDServices {
     }
 
     @discardableResult public func history() -> [Event] {
+      AF.request("https://httpbin.org/get").responseString { response in
+        switch response.result {
+        case .success(let value):
+          NSLog(String(describing: value))
+        case.failure(let error):
+          NSLog(String(describing: error))
+        }
+      }
         let events = EventEntity.getAllEvents()
         return events.map { (event) -> Event in
             return Event(type: EventType(rawValue: event.type ?? ""), message: event.message)
